@@ -37,15 +37,15 @@ namespace ProductCatalogAPI.Data
         {
             return new List<CatalogItem>
             {
-                new CatalogItem{Name="red Fire",CatalogBrandID=1,CatalogTypeID=2,Price=100M,Description="perfect for  celebration",PictureUrl="https:needsreplacement/api/pic/1" },
-                new CatalogItem{Name="blue Ocean",CatalogBrandID=2,CatalogTypeID=1,Price=21.67M,Description="perfect for september",PictureUrl="https:needsreplacement/api/pic/2"},
-                new CatalogItem{Name="green Lake",CatalogBrandID=3,CatalogTypeID=2,Price=675.343M,Description="ring for Nature lovers",PictureUrl="https:needsreplacement/api/pic/3" }, 
-                new CatalogItem{Name="snow white",CatalogBrandID=3,CatalogTypeID=1,Price=500M,Description="for people who loves sparkle",PictureUrl="https:needsreplacement/api/pic/4"},
-                new CatalogItem{Name="morning breeze",CatalogBrandID=2,CatalogTypeID=3,Price=200M,Description="all days are sunday",PictureUrl="https:needsreplacement/api/pic/5" },
-                new CatalogItem{Name="beach walking",CatalogBrandID=1,CatalogTypeID=3,Price=218.67M,Description="perfect for summer",PictureUrl="https:needsreplacement/api/pic/6"},
-                new CatalogItem{Name="Lake deep blue",CatalogBrandID=3,CatalogTypeID=3,Price=875.343M,Description="deep blue likes deep thoughts",PictureUrl="https:needsreplacement/api/pic/7" },
-                new CatalogItem{Name="purple leaf",CatalogBrandID=2,CatalogTypeID=2,Price=369M,Description="for people who loves fall",PictureUrl="https:needsreplacement/api/pic/8"},
-                new CatalogItem{Name="holiday spirit",CatalogBrandID=1,CatalogTypeID=1,Price=1000M,Description="perfect for Holiday celebration",PictureUrl="https:needsreplacement/api/pic/9" }
+                new CatalogItem{Name="red Fire",CatalogBrandID=1,CatalogTypeID=2,Price=100M,Description="perfect for  celebration",PictureUrl="https://needsreplacement/api/pic/1" },
+                new CatalogItem{Name="blue Ocean",CatalogBrandID=2,CatalogTypeID=1,Price=21.67M,Description="perfect for september",PictureUrl="https://needsreplacement/api/pic/2"},
+                new CatalogItem{Name="green Lake",CatalogBrandID=3,CatalogTypeID=2,Price=675.343M,Description="ring for Nature lovers",PictureUrl="https://needsreplacement/api/pic/3" }, 
+                new CatalogItem{Name="snow white",CatalogBrandID=3,CatalogTypeID=1,Price=500M,Description="for people who loves sparkle",PictureUrl="https://needsreplacement/api/pic/4"},
+                new CatalogItem{Name="morning breeze",CatalogBrandID=2,CatalogTypeID=3,Price=200M,Description="all days are sunday",PictureUrl="https://needsreplacement/api/pic/5" },
+                new CatalogItem{Name="beach walking",CatalogBrandID=1,CatalogTypeID=3,Price=218.67M,Description="perfect for summer",PictureUrl="https://needsreplacement/api/pic/6"},
+                new CatalogItem{Name="Lake deep blue",CatalogBrandID=3,CatalogTypeID=3,Price=875.343M,Description="deep blue likes deep thoughts",PictureUrl="https://needsreplacement/api/pic/7" },
+                new CatalogItem{Name="purple leaf",CatalogBrandID=2,CatalogTypeID=2,Price=369M,Description="for people who loves fall",PictureUrl="https://needsreplacement/api/pic/8"},
+                new CatalogItem{Name="holiday spirit",CatalogBrandID=1,CatalogTypeID=1,Price=1000M,Description="perfect for Holiday celebration",PictureUrl="https://needsreplacement/api/pic/9" }
                 
 
             };

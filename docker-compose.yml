@@ -1,0 +1,38 @@
+version: '3.4'
+networks:
+  frontend:
+  backend:
+
+services:
+  productcatalog:
+    image: rings/catalogapi
+    build:
+      context: .\ProductCatalogAPI
+      dockerfile: Dockerfile
+    environment:
+      ConnectionString: "Data Source=mssqlserver;Initial Catalog=CatalogDb;User ID=sa;Password=CatalogApi123(!);Connect Timeout=30;TrustServerCertificate=false;Encrypt=false;"
+      ExternalBaseUrl: https://localhost:7000
+    ports:
+      - "7000:80"  
+    container_name: ringscatalogapi
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - mssqlserver
+
+  mssqlserver:
+    image: "mcr.microsoft.com/mssql/server:latest"
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: CatalogApi123(!)
+      SA_PASSWORD: CatalogApi123(!)
+    ports:
+      - "7001:1433"
+    container_name: ringssqlserver
+    networks:
+      - backend
+
+
+    
+      

@@ -7,14 +7,17 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ProductCatalogAPI/ProductCatalogAPI.csproj", "ProductCatalogAPI/"]
-RUN dotnet restore "ProductCatalogAPI/ProductCatalogAPI.csproj"
 COPY . .
-WORKDIR "/src/ProductCatalogAPI"
+RUN dotnet restore "ProductCatalogAPI.csproj"
+
+
 RUN dotnet build "ProductCatalogAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "ProductCatalogAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+
 
 FROM base AS final
 WORKDIR /app
