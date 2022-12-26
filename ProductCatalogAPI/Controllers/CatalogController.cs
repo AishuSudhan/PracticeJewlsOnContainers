@@ -47,8 +47,11 @@ namespace ProductCatalogAPI.Controllers
                 .Skip(pageindex * pagesize).Take(pagesize).ToListAsync();
             item = changepictureurl(item);//we are calling this method so that we can replace the dummy url we created in catalogseed class with real url we created in appsettings.json
 
-            var model = new PaginatedItemsViewModel//this step will tell the user how many items in database and how many items perpage.
+            var model = new PaginatedItemsViewModel//we are creating an object here and return this obj to microservice by 
+                                                   //return ok(model).during this process,microservice take this obj will convert them to json thats called serialization.
+            
             {
+                //this step will tell the user how many items in database and how many items perpage and display them in json.
                 Pageindex = pageindex,
                 Pagesize = item.Count,
                 Data = item,
