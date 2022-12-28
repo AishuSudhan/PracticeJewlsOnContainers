@@ -18,7 +18,7 @@
             //these 3 codes does exact same thing as postman but these are codes.
             //first line of code get the uri
 
-            var request = new HttpRequestMessage(HttpMethod.Get, Uri);
+            var request = new HttpRequestMessage(HttpMethod.Get, Uri);//this uri we will pass from CatalogClass(services) through GetAllItems method.
 
             //second line send the link like we click send in postman
 
