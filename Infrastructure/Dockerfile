@@ -6,17 +6,16 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
-RUN dotnet restore "Infrastructure/Infrastructure.csproj"
+WORKDIR /SourceCode
 COPY . .
-WORKDIR "/src/Infrastructure"
-RUN dotnet build "Infrastructure.csproj" -c Release -o /app/build
+RUN dotnet restore "WebMVC.csproj"
+
+RUN dotnet build "WebMVC.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Infrastructure.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "WebMVC.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Infrastructure.dll"]
+ENTRYPOINT ["dotnet", "WebMVC.dll"]

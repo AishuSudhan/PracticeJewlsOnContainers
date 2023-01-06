@@ -6,7 +6,7 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
+WORKDIR /SourceCode
 COPY . .
 RUN dotnet restore "ProductCatalogAPI.csproj"
 

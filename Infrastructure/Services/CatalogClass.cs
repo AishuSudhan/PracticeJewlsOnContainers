@@ -19,9 +19,9 @@ namespace WebMVC.Services
             _baseurl = $"{config["CatalogUrl"]}/api/catalog";
 
         }
-        public async Task<Catalog> GetAllItems(int pagenumber, int pagesize)
+        public async Task<Catalog> GetAllItems(int pagenumber, int pagesize,int? brand,int? type)
         {
-           var customurl= APIpaths.Catalog.GetallItems(_baseurl, pagenumber, pagesize);
+           var customurl= APIpaths.Catalog.GetallItems(_baseurl, pagenumber, pagesize,brand,type);
             var datastring = await _httpclient.GetStringAsync(customurl);//we are sending this url to the method in httpclientclass.
                                                                          //this is the line actually gets results from microservice.
                                                                          //so that it will get the results and the we can do deserialization in next line of code.

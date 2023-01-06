@@ -11,15 +11,31 @@ services:
       dockerfile: Dockerfile
     environment:
       ConnectionString: "Data Source=mssqlserver;Initial Catalog=CatalogDb;User ID=sa;Password=CatalogApi123(!);Connect Timeout=30;TrustServerCertificate=false;Encrypt=false;"
-      ExternalBaseUrl: https://localhost:7000
+      ExternalBaseUrl: http://localhost:7200
     ports:
-      - "7000:80"  
+      - "7200:80"  
     container_name: ringscatalogapi
     networks:
       - frontend
       - backend
     depends_on:
       - mssqlserver
+
+  webmvc:
+    image: rings/webmvc
+    build:
+      context: .\WebMVC
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      CatalogUrl: http://productcatalog
+    ports:
+      - "7010:80"  
+    container_name: ringshop
+    networks:
+      - frontend
+    depends_on:
+      - productcatalog
 
   mssqlserver:
     image: "mcr.microsoft.com/mssql/server:latest"

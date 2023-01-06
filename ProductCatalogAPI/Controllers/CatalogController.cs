@@ -62,6 +62,50 @@ namespace ProductCatalogAPI.Controllers
 
 
         }
+        //this API is for getting results for selected brand and type from dropdown.
+
+        [HttpGet("[action]/filter")]
+        
+        //we are adding filter in route here because in API we cannot have same method name with same route options for 
+        //getting two differnt results. (but in c# we can have two methods with same name with differnt datatype for parameters.)
+        public async Task<IActionResult> catalogitem([FromQuery] int? catalogtypeid, [FromQuery] int? catalogbrandid,
+            [FromQuery] int pageindex = 0, [FromQuery] int pagesize = 4)
+        {
+            var query = (IQueryable<CatalogItem>)_context.catalog;//query means we are asking just to get the information without executing the table.
+            if(catalogtypeid.HasValue)
+            {
+                query = query.Where(c => c.CatalogTypeID == catalogtypeid.Value);
+                //here we are checking CatalogTypeId from CatalogItem table(database) and the catalogtypeid from parameter(user selected one passed 
+                //through this method/action are same. we are getting it int?(that is nullable) because user may select it or maynot. so if there is a 
+                //value in that parameter, then check it.
+                //we are overwritting the query here.
+                        }
+            if(catalogbrandid.HasValue)
+            {
+                //this code does same like catalogtypeid.and we are not using if else because user can choose both type and brand from dropdown.
+                
+                query = query.Where(c => c.CatalogBrandID == catalogbrandid.Value);
+            }
+
+
+            var itemcount = query.LongCountAsync();
+            var item = await query.OrderBy(i => i.Name)
+                .Skip(pageindex * pagesize).Take(pagesize).ToListAsync();
+            item = changepictureurl(item);
+
+            var model = new PaginatedItemsViewModel
+
+            {
+                Pageindex = pageindex,
+                Pagesize = item.Count,
+                Data = item,
+                Count = itemcount.Result
+            };
+
+            return Ok(model);
+
+
+        }
 
         private List<CatalogItem> changepictureurl(List<CatalogItem> item)
         {

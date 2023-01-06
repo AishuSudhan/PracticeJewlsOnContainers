@@ -9,5 +9,7 @@ namespace WebMVC.viewmodels
         public IEnumerable<SelectListItem>Types { get; set; }
         public IEnumerable<catalogitemclass> catalogitems { get; set; }
         public Paginationinfo paginationinfo { get; set; }
+        public int? BrandFilterApplied { get; set; }
+        public int? TypesFilterApplied { get; set; }
     }
 }

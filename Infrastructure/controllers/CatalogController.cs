@@ -12,10 +12,10 @@ namespace WebMVC.controllers
         {
             _catalog = catalog;
         }
-        public async Task<IActionResult> Index(int ? pagenumber)
+        public async Task<IActionResult> Index(int ? pagenumber,int? typesFilterApplied,int? brandFilterApplied)
         {
             var itemsperpage = 10;
-            var catalog = await _catalog.GetAllItems(pagenumber ?? 0, itemsperpage); //calling items microservice,it will bring all items to display in views.
+            var catalog = await _catalog.GetAllItems(pagenumber ?? 0, itemsperpage, typesFilterApplied, brandFilterApplied); //calling items microservice,it will bring all items to display in views.
             var viewmodel = new CatalogViewModel
             {
                 Brand = await _catalog.Getbrands(),//calling brand microservice,it will bring list of selectlist brands. 
@@ -32,9 +32,13 @@ namespace WebMVC.controllers
                     TotalPages = (int)Math.Ceiling((decimal)catalog.Count / itemsperpage)
                     //math ceiling will round up the divide results and then we are converting again to int to display total pagenumber
                     //first we are making it into decimal so that we will get exact pages like 1.4,so that we wont missout those remaining 4 pages
-                }
+                },
+
+                TypesFilterApplied= typesFilterApplied,
+                BrandFilterApplied= brandFilterApplied
+             //above 2 lines of code is saying whatever the user choose,the drop down will stay in that choice after the user chose.
             };
-            return View();
+            return View(viewmodel);
         }
     }
 }
