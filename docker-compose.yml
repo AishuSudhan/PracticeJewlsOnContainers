@@ -24,10 +24,10 @@ services:
   webmvc:
     image: rings/webmvc
     build:
-      context: .\WebMVC
+      context: .\Infrastructure
       dockerfile: Dockerfile
     environment:
-      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_ENVIRONMENT: Production
       CatalogUrl: http://productcatalog
     ports:
       - "7010:80"  

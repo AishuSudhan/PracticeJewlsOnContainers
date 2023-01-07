@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using WebMVC.Models;
+using Infrastructure.Models;
 
-namespace WebMVC.Services
+namespace Infrastructure.Services
 {
     public interface ICatalog
     {

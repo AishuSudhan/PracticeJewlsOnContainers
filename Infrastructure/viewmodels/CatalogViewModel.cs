@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using WebMVC.Models;
+using Infrastructure.Models;
 
-namespace WebMVC.viewmodels
+namespace Infrastructure.viewmodels
 {
     public class CatalogViewModel
     {

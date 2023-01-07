@@ -1,5 +1,5 @@
-using WebMVC.Infrastructure;
-using WebMVC.Services;
+using Infrastructure.Infrastructures;
+using Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

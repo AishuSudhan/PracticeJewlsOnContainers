@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebMVC.Models;
-using WebMVC.Services;
-using WebMVC.viewmodels;
+using Infrastructure.Models;
+using Infrastructure.Services;
+using Infrastructure.viewmodels;
 
-namespace WebMVC.controllers
+namespace Infrastructure.controllers
 {
     public class CatalogController : Controller
     {

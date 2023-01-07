@@ -1,10 +1,10 @@
-﻿@model WebMVC.Models.catalogitemclass
+﻿@model Infrastructure.Models.catalogitemclass
 
 
 
 
 <form asp-controller="Cart" asp-action="AddToCart">
-    <img class="esh-catalog-thumbnail" src="@Model.PictureUrl" />
+    <img class="esh-catalog-thumbnail" SourceCode="@Model.PictureUrl" />
     <input class="esh-catalog-button" type="submit" value="[ ADD TO CART ]" />
     <div class="esh-catalog-name">
         <span>@Model.Name</span>

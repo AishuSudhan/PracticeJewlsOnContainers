@@ -1,4 +1,4 @@
-﻿namespace WebMVC.Models
+﻿namespace Infrastructure.Models
 {
     public class catalogitemclass
     {

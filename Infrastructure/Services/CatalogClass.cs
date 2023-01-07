@@ -4,10 +4,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
-using WebMVC.Infrastructure;
-using WebMVC.Models;
+using Infrastructure.Infrastructures;
+using Infrastructure.Models;
 
-namespace WebMVC.Services
+namespace Infrastructure.Services
 {
     public class CatalogClass : ICatalog
     {

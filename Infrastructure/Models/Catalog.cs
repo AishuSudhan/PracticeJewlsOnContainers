@@ -1,4 +1,4 @@
-﻿namespace WebMVC.Models
+﻿namespace Infrastructure.Models
 {
     public class Catalog
         //you can give anyname to the class. doesnt matter.we are doing deserialization here. when we get back the results,it will show the paginated items(we wrote)
