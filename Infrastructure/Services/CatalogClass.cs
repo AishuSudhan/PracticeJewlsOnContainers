@@ -46,8 +46,8 @@ namespace Infrastructure.Services
             {
                 item.Add(new SelectListItem
                 {
-                    Value = items.Value<string>("Id"),
-                    Text = items.Value<string>("Brand")
+                    Value = items.Value<string>("id"),
+                    Text = items.Value<string>("brand")
                 });
             }
             return item;
@@ -72,8 +72,8 @@ namespace Infrastructure.Services
             {
                 items.Add(new SelectListItem
                 {
-                    Value = item.Value<string>("Id"),
-                    Text = item.Value<string>("Type")
+                    Value = item.Value<string>("id"),
+                    Text = item.Value<string>("type")
                 });
             }
             return items;

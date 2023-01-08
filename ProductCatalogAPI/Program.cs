@@ -7,7 +7,7 @@ ConfigurationManager configuration = builder.Configuration;
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<CatalogContext>(options =>
-options.UseSqlServer(configuration["ConnectionString"]));
+                    options.UseSqlServer(configuration["ConnectionString"]));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

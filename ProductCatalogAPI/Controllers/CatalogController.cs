@@ -107,7 +107,7 @@ namespace ProductCatalogAPI.Controllers
 
         }
 
-        private List<CatalogItem> changepictureurl(List<CatalogItem> item)
+        private  List<CatalogItem> changepictureurl(List<CatalogItem> item)
         {
             item.ForEach(items => items.PictureUrl = items.PictureUrl.Replace("https://needsreplacement", _config["ExternalBaseUrl"]));
             return item;

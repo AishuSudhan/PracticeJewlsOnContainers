@@ -38,7 +38,7 @@ namespace Infrastructure.controllers
                 BrandFilterApplied= brandFilterApplied
              //above 2 lines of code is saying whatever the user choose,the drop down will stay in that choice after the user chose.
             };
-            return View(viewmodel);
+           return View(viewmodel);
         }
     }
 }
