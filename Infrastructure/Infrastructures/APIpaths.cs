@@ -18,11 +18,11 @@
                 var filterqs = string.Empty;
                 if(brand.HasValue)
                 {
-                    filterqs = $"CatalogBrandID={brand.Value}";
+                    filterqs = $"catalogBrandID={brand.Value}";
                 }
                 if(type.HasValue)
                 {
-                    filterqs = (filterqs == string.Empty) ? $"CatalogTypeID={type.Value}" : $"{filterqs}&CatalogTypeID={type.Value}";
+                    filterqs = (filterqs == string.Empty) ? $"catalogTypeID={type.Value}" : $"{filterqs}&CatalogTypeID={type.Value}";
                 }
                 if(string.IsNullOrEmpty(filterqs))
                 {
