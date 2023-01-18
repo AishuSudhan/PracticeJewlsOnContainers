@@ -2,6 +2,7 @@
 using Infrastructure.Models;
 using Infrastructure.Services;
 using Infrastructure.viewmodels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Infrastructure.controllers
 {
@@ -39,6 +40,16 @@ namespace Infrastructure.controllers
              //above 2 lines of code is saying whatever the user choose,the drop down will stay in that choice after the user chose.
             };
            return View(viewmodel);
+        }
+        [Authorize]//this keyword "Authorize" says this method cannot used by public user. 
+        //that means whenever you need to call this method you need to have token.
+        //when you call this method,you need to be authorized,for that you need to be authenticated first. because for Authorization
+        //you need to have token. no token means you haven't logged in yet. so it will look in to identity server and it see that in configuration.
+        //and send you to identity server,the server will asked you to logged in.
+        //once you logged in it will issue a token.
+        public IActionResult About()
+        {
+            return View();
         }
     }
 }
