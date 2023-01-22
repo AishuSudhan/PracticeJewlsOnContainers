@@ -10,6 +10,7 @@ namespace TokenServiceAPI
 {
     public static class Config
     {
+		//defining list of Api's
 		public static IEnumerable<ApiScope> Apis()
 		{
 			return new List<ApiScope>
@@ -50,7 +51,7 @@ namespace TokenServiceAPI
 						ClientName = "MVC Client",
 						AllowedGrantTypes = GrantTypes.Hybrid, //means user is redirected to identity server
 	                    ClientSecrets = new [] { new Secret("secret".Sha256())},
-						RedirectUris = {$"{clientUrls["Mvc"]}/signin-oidc"},
+						RedirectUris = {$"{clientUrls["Mvc"]}/signin-oidc"},//signin-oidc this is the uri we need to provide to create the token using openidconnect.It will create on its own.we dont need to create. 
 						PostLogoutRedirectUris={$"{clientUrls["Mvc"]}/signout-callback-oidc"},
 						AllowAccessTokensViaBrowser = false,
 						AllowOfflineAccess = true,

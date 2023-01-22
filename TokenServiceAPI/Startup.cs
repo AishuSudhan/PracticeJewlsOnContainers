@@ -38,6 +38,7 @@ namespace TokenServiceAPI
             
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionString"]));
+            //following lines tells this is an Tokenserver not an ordinary Microserver.
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddIdentityServer()
